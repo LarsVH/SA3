@@ -1,4 +1,4 @@
-package softarch.portal.db;
+package softarch.portal.db.sql;
 
 import softarch.portal.data.CheapSubscription;
 import softarch.portal.data.ExpensiveSubscription;
@@ -49,6 +49,8 @@ public class UserDatabase extends Database {
 	/**
 	 * Returns the user with the specified username.
 	 */
+	
+	// TODO -------------------------------------------------------------------------------------------------------------------------
 	public UserProfile findUser(String username)
 		throws DatabaseException {
 
