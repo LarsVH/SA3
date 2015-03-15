@@ -73,18 +73,19 @@ public class UserManager extends Manager {
 					"is already taken!");
 			else {
 				if(profile instanceof FreeSubscription){
-					
+					dbFacade.insertFree(profile);
 				}
 				else if(profile instanceof CheapSubscription){
-					
+					dbFacade.insertCheap(profile);
 				}
 				else if(profile instanceof ExpensiveSubscription){
-					
+					dbFacade.insertExpensive(profile);
 				}
 				else {
 					System.out.println("ERROR -- UserManager -- Subscription Instance not determinable");
 				}
-				dbFacade.insert(profile);
+				// TODO: Remove
+				//dbFacade.insert(profile);
 			}
 		}
 		catch (DatabaseException e) {
