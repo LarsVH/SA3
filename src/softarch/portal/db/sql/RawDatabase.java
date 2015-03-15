@@ -15,6 +15,7 @@ import softarch.portal.data.RawData;
 import softarch.portal.data.RegularData;
 import softarch.portal.data.Report;
 import softarch.portal.data.SoftwareRepository;
+import softarch.portal.db.RawDatabaseInterface;
 
 import java.sql.SQLException;
 
@@ -22,7 +23,7 @@ import java.sql.SQLException;
  * This class encapsulates the portal's raw database.
  * @author Niels Joncheere
  */
-public class RawDatabase extends Database {
+public class RawDatabase extends Database implements RawDatabaseInterface {
 	/**
 	 * Creates a new raw database.
 	 */
@@ -30,8 +31,8 @@ public class RawDatabase extends Database {
 		super(dbUser, dbPassword, dbUrl);
 	}
 
-	/**
-	 * Returns a list of all raw data.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RawDatabaseInterface#getRawData()
 	 */
 	public List getRawData()
 		throws DatabaseException {
@@ -158,8 +159,8 @@ public class RawDatabase extends Database {
 		}
 	}
 
-	/**
-	 * Returns a specific raw data object.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RawDatabaseInterface#getRawData(int)
 	 */
 	public RawData getRawData(int id)
 		throws DatabaseException {
@@ -245,6 +246,9 @@ public class RawDatabase extends Database {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RawDatabaseInterface#addRawData(softarch.portal.data.RegularData)
+	 */
 	public void addRawData(RegularData regularData)
 		throws DatabaseException {
 
@@ -253,8 +257,8 @@ public class RawDatabase extends Database {
 		executeSql(rawData.asSql());
 	}
 
-	/**
-	 * Deletes a raw data object.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RawDatabaseInterface#deleteRawData(softarch.portal.data.RawData)
 	 */
 	public void deleteRawData(RawData rd)
 		throws DatabaseException {
@@ -269,8 +273,8 @@ public class RawDatabase extends Database {
 		executeSql("DELETE FROM RawInterestingWebsite WHERE ID = " + id + ";");
 	}
 
-	/**
-	 * Updates a raw data object.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RawDatabaseInterface#updateRawData(softarch.portal.data.RawData)
 	 */
 	public void updateRawData(RawData rd)
 		throws DatabaseException {
@@ -279,8 +283,8 @@ public class RawDatabase extends Database {
 		executeSql(rd.asSql());
 	}
 
-	/**
-	 * Returns the number of records in the raw database.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RawDatabaseInterface#getNumberOfRawRecords()
 	 */
 	public int getNumberOfRawRecords()
 		throws DatabaseException {

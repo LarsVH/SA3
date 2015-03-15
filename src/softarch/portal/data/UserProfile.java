@@ -11,6 +11,19 @@ public abstract class UserProfile extends Data {
 	protected	String	password;
 	protected	String	firstName;
 	protected	String	lastName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
 	protected	String	emailAddress;
 	protected	Date	lastLogin;
 

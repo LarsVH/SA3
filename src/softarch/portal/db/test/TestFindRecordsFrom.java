@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import softarch.portal.data.SoftwareRepository;
+import softarch.portal.db.RegularDatabaseInterface;
 import softarch.portal.db.sql.RegularDatabase;
 
 import java.net.URL;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 public class TestFindRecordsFrom {
 	public static void main(String[] args) {
 		try {
-			RegularDatabase regularDb = new RegularDatabase(
+			RegularDatabaseInterface regularDb = new RegularDatabase(
 				"njonchee",
 				"chivas12",
 				"localhost/njonchee");

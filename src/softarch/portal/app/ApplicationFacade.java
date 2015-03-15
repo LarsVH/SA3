@@ -3,7 +3,7 @@ package softarch.portal.app;
 import softarch.portal.data.RawData;
 import softarch.portal.data.RegularData;
 import softarch.portal.data.UserProfile;
-import softarch.portal.db.sql.DatabaseFacade;
+import softarch.portal.db.DatabaseFacade;
 
 import java.util.List;
 import java.util.Date;
@@ -26,6 +26,7 @@ public class ApplicationFacade {
 					String dbPassword,
 					String dbUrl) {
 		
+		//XXX This should be the only link between application and db
 		DatabaseFacade dbFacade
 			= new DatabaseFacade(dbUser, dbPassword, dbUrl);
 		

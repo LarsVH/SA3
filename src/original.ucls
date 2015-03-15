@@ -1,116 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="softarch.portal.app.OperationManager" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/OperationManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="115" width="219" x="281" y="416"/>    
+  <class id="1" language="java" name="softarch.portal.data.Data" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/Data.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="256" y="173"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="softarch.portal.app.ApplicationException" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/ApplicationException.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="79" width="159" x="82" y="9"/>    
+  <class id="2" language="java" name="softarch.portal.data.RegularData" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/RegularData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="151" width="167" x="70" y="363"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="softarch.portal.app.Manager" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/Manager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="97" width="162" x="312" y="9"/>    
+  <class id="3" language="java" name="softarch.portal.data.RawData" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/RawData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="259" width="201" x="521" y="402"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="softarch.portal.app.ApplicationFacade" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/ApplicationFacade.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="367" width="219" x="514" y="9"/>    
+  <class id="4" language="java" name="softarch.portal.data.Article" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/Article.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="610" y="170"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="softarch.portal.app.UserManager" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/UserManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="241" width="200" x="540" y="416"/>    
+  <class id="5" language="java" name="softarch.portal.data.CheapSubscription" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/CheapSubscription.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="919" y="116"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="softarch.portal.app.QueryManager" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/QueryManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="115" width="190" x="51" y="416"/>    
+  <class id="6" language="java" name="softarch.portal.data.Conference" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/Conference.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1254" y="179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="softarch.portal.app.AdministrationManager" project="web_portal" 
-    file="/web_portal/src/softarch/portal/app/AdministrationManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="187" width="226" x="780" y="416"/>    
+  <class id="7" language="java" name="softarch.portal.data.ExpensiveSubscription" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/ExpensiveSubscription.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1597" y="116"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="8">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="3"/>  
+  <package id="8" language="java" name="softarch.portal.data" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1864" y="56"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="9" language="java" name="softarch.portal.data.RegularAdministrator" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/RegularAdministrator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2128" y="107"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="softarch.portal.data.InterestingWebsite" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/InterestingWebsite.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1909" y="527"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="softarch.portal.data.ExternalAdministrator" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/ExternalAdministrator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1859" y="295"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="softarch.portal.data.Report" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/Report.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2424" y="94"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="softarch.portal.data.ExpertAdministrator" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/ExpertAdministrator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2245" y="454"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="softarch.portal.data.FreeSubscription" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/FreeSubscription.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2277" y="638"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="softarch.portal.data.Book" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/Book.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2623" y="441"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="softarch.portal.data.SoftwareRepository" project="web_portal" 
+    file="/web_portal/src/softarch/portal/data/SoftwareRepository.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2930" y="309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="9">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="10" name="queryManager"/>      
-      <multiplicity id="11" minimum="0" maximum="1"/>    
+  <generalization id="18">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="22">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="23" name="structure"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="12">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="administrationManager"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="15">    
+  <generalization id="25">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="TARGET" refId="2"/>  
   </generalization>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="17">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="18" name="operationManager"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="21" name="userManager"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

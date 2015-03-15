@@ -2,9 +2,13 @@ package softarch.portal.app;
 
 import java.util.Map;
 
+import softarch.portal.data.CheapSubscription;
+import softarch.portal.data.ExpensiveSubscription;
+import softarch.portal.data.FreeSubscription;
+import softarch.portal.data.RegularUser;
 import softarch.portal.data.UserProfile;
+import softarch.portal.db.DatabaseFacade;
 import softarch.portal.db.sql.DatabaseException;
-import softarch.portal.db.sql.DatabaseFacade;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -67,8 +71,21 @@ public class UserManager extends Manager {
 				throw new DatabaseException(
 					"The username \"" + username + "\" " +
 					"is already taken!");
-			else
+			else {
+				if(profile instanceof FreeSubscription){
+					
+				}
+				else if(profile instanceof CheapSubscription){
+					
+				}
+				else if(profile instanceof ExpensiveSubscription){
+					
+				}
+				else {
+					System.out.println("ERROR -- UserManager -- Subscription Instance not determinable");
+				}
 				dbFacade.insert(profile);
+			}
 		}
 		catch (DatabaseException e) {
 			throw new ApplicationException(e.getMessage());

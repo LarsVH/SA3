@@ -78,6 +78,7 @@ public class ExpensiveSubscription extends RegularUser {
 			"</ExpensiveSubscription>";
 	}
 
+	// TODO: remove asSql
 	/**
 	 * Returns an SQL INSERT string that allows the system to add
 	 * the account to a relational database.

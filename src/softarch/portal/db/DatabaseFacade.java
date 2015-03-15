@@ -1,8 +1,12 @@
-package softarch.portal.db.sql;
+package softarch.portal.db;
 
 import softarch.portal.data.RawData;
 import softarch.portal.data.RegularData;
 import softarch.portal.data.UserProfile;
+import softarch.portal.db.sql.DatabaseException;
+import softarch.portal.db.sql.RawDatabase;
+import softarch.portal.db.sql.RegularDatabase;
+import softarch.portal.db.sql.UserDatabase;
 
 import java.util.List;
 import java.util.Date;
@@ -12,9 +16,9 @@ import java.util.Date;
  * @author Niels Joncheere
  */
 public class DatabaseFacade {
-	private UserDatabase	userDb;
-	private RegularDatabase	regularDb;
-	private RawDatabase	rawDb;
+	private UserDatabaseInterface	userDb;
+	private RegularDatabaseInterface	regularDb;
+	private RawDatabaseInterface	rawDb;
 
 	/**
 	 * Creates a new database facade.
@@ -38,6 +42,16 @@ public class DatabaseFacade {
 		throws DatabaseException {
 	
 		userDb.insert(profile);
+	}
+	
+	public void insertFree(UserProfile profile){
+		userDb.insertFree(profile);
+	}
+	public void insertCheap(UserProfile profile) throws DatabaseException{
+		userDb.insertcheap(profile);
+	}
+	public void insertExpensive(UserProfile profile){
+		userDb.insertExpensive(profile);
 	}
 
 	/**

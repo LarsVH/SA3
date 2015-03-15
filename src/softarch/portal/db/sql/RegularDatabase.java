@@ -17,6 +17,7 @@ import softarch.portal.data.InterestingWebsite;
 import softarch.portal.data.RegularData;
 import softarch.portal.data.Report;
 import softarch.portal.data.SoftwareRepository;
+import softarch.portal.db.RegularDatabaseInterface;
 
 import java.text.ParseException;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ import java.sql.SQLException;
  * This class encapsulates the regular database.
  * @author Niels Joncheere
  */
-public class RegularDatabase extends Database {
+public class RegularDatabase extends Database implements RegularDatabaseInterface {
 	/**
 	 * Creates a new regular database.
 	 */
@@ -33,9 +34,8 @@ public class RegularDatabase extends Database {
 		super(dbUser, dbPassword, dbUrl);
 	}
 
-	/**
-	 * Returns a list containing all records of the given information type
-	 * that match the given query string.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RegularDatabaseInterface#findRecords(java.lang.String, java.lang.String)
 	 */
 	public List findRecords(String informationType, String queryString)
 		throws DatabaseException {
@@ -102,9 +102,8 @@ public class RegularDatabase extends Database {
 		}
 	}
 
-	/**
-	 * Returns a list containing all records of the given information type
-	 * that were added after the given date.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RegularDatabaseInterface#findRecordsFrom(java.lang.String, java.util.Date)
 	 */
 	public List findRecordsFrom(String informationType, Date date)
 		throws DatabaseException {
@@ -176,8 +175,8 @@ public class RegularDatabase extends Database {
 		}
 	}
 
-	/**
-	 * Adds a new regular data object to the regular database.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RegularDatabaseInterface#add(softarch.portal.data.RegularData)
 	 */
 	public void add(RegularData rd)
 		throws DatabaseException {
@@ -185,9 +184,8 @@ public class RegularDatabase extends Database {
 		executeSql(rd.asSql());
 	}
 
-	/**
-	 * Returns the number of records of the given information type in the
-	 * regular database.
+	/* (non-Javadoc)
+	 * @see softarch.portal.db.sql.RegularDatabaseInterface#getNumberOfRegularRecords(java.lang.String)
 	 */
 	public int getNumberOfRegularRecords(String informationType)
 		throws DatabaseException {

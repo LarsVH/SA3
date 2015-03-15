@@ -6,6 +6,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Iterator;
 
@@ -86,4 +88,34 @@ public class Database {
 				"Unexpected Exception: " + e.getMessage());
 		}
 	}
+	/**
+	 * Removes illegal SQL characters from the given input string.
+	 */
+	public String normalizeSql(String input) {
+		String	result	= new String();
+		int	length	= input.length();
+
+		for (int i = 0; i < length; i++) {
+			char c = input.charAt(i);
+
+			switch (c) {
+				case '\'':
+					result += "\\\'";
+					break;
+				case '\"':
+					result += "\\\"";
+					break;
+				default:
+					result += c;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * The portal's date format.
+	 */
+	public static final DateFormat df
+		= new SimpleDateFormat("yyyy-MM-dd");
+	
 }

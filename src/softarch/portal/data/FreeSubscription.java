@@ -77,7 +77,7 @@ public class FreeSubscription extends RegularUser {
 			"<lastLogin>" + df.format(lastLogin) + "</lastLogin>" +
 			"</FreeSubscription>";
 	}
-
+	// TODO: Remove asSql
 	/**
 	 * Returns an SQL INSERT string that allows the system to add
 	 * the account to a relational database.

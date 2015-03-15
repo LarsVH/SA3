@@ -82,6 +82,7 @@ public class CheapSubscription extends RegularUser {
 	 * Returns an SQL INSERT string that allows the system to add
 	 * the account to a relational database.
 	 */
+	// TODO remove asSql
 	public String asSql() {
 		return	"INSERT INTO CheapSubscription (Username, Password, " +
 			"FirstName, LastName, EmailAddress, LastLogin) " +
