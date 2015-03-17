@@ -75,12 +75,13 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 	/* (non-Javadoc)
 	 * @see softarch.portal.db.sql.UserDatabaseInterface#update(softarch.portal.data.UserProfile)
 	 */
-	public void update(UserProfile profile)
+	
+	/*public void update(UserProfile profile)
 			throws DatabaseException {
 
 		executeSql(profile.asSqlUpdate());
 	}
-
+*/
 
 	public void updateFree(UserProfile profile) throws DatabaseException {
 		executeSql("UPDATE FreeSubscription SET Password = \'" +
@@ -249,7 +250,6 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 					"SQL Exception: " + e.getMessage());
 		}
 	}
-
 
 
 

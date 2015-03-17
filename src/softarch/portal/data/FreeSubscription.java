@@ -1,6 +1,10 @@
 package softarch.portal.data;
 
 import javax.servlet.http.HttpServletRequest;
+
+import softarch.portal.db.DatabaseFacade;
+import softarch.portal.db.sql.DatabaseException;
+
 import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -81,6 +85,7 @@ public class FreeSubscription extends RegularUser {
 	/**
 	 * Returns an SQL INSERT string that allows the system to add
 	 * the account to a relational database.
+	 * @throws DatabaseException 
 	 */
 	/*public String asSql() {
 		return	"INSERT INTO FreeSubscription (Username, Password, " +
@@ -93,6 +98,12 @@ public class FreeSubscription extends RegularUser {
 			df.format(lastLogin) + "\');";
 	} */
 
+	@Override
+	public void insertToDatabase(DatabaseFacade dbFacade,UserProfile profile) throws DatabaseException {
+		dbFacade.insertFree(profile);
+		
+	}
+	
 	/**
 	 * Returns an SQL UPDATE string that allows the system to update
 	 * the account in a relational database.
@@ -106,4 +117,6 @@ public class FreeSubscription extends RegularUser {
 			df.format(lastLogin) + "\' " + "WHERE Username = \'" +
 			normalizeSql(username) + "\';";
 	}
+
+
 }
