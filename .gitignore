@@ -1,2 +1,6 @@
 .metadata
 build
+web_portal.cfg
+web_portal.properties
+web_portal.script
+web.xml
