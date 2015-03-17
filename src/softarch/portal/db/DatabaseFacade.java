@@ -42,20 +42,22 @@ public class DatabaseFacade {
 	}
 
 	/**
-	 * Inserts a new user profile into the user database.
+	 * Inserts a new free user profile into the user database.
 	 */
-	/*public void insert(UserProfile profile)
-			throws DatabaseException {
-
-		userDb.insert(profile);
-	}*/
-
 	public void insertFree(UserProfile profile) throws DatabaseException{
 		userDb.insertFree(profile);
 	}
+	
+	/**
+	 * Inserts a new cheap user profile into the user database.
+	 */
 	public void insertCheap(UserProfile profile) throws DatabaseException{
 		userDb.insertCheap(profile);
 	}
+	
+	/**
+	 * Inserts a new expensive user profile into the user database.
+	 */
 	public void insertExpensive(UserProfile profile) throws DatabaseException{
 		userDb.insertExpensive(profile);
 	}

@@ -12,12 +12,12 @@ import softarch.portal.data.UserProfile;
  *
  */
 public class UserProfileJson {
-	private String userName;
-	private String password;
-	private String firstName;
-	private String lastName;
-	private String emailAddress;
-	private Date lastLogin;
+	public String userName;
+	public String password;
+	public String firstName;
+	public String lastName;
+	public String emailAddress;
+	public Date lastLogin;
 	
 	public UserProfileJson(UserProfile userProfile) {
 		this.userName = userProfile.getUsername();
