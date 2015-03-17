@@ -38,11 +38,11 @@ public class DatabaseFacade {
 	/**
 	 * Inserts a new user profile into the user database.
 	 */
-	public void insert(UserProfile profile)
+	/*public void insert(UserProfile profile)
 			throws DatabaseException {
 
 		userDb.insert(profile);
-	}
+	}*/
 
 	public void insertFree(UserProfile profile) throws DatabaseException{
 		userDb.insertFree(profile);
@@ -60,7 +60,6 @@ public class DatabaseFacade {
 	// TODO: remove SQL coupling in app layer (logout)
 	public void update(UserProfile profile)
 			throws DatabaseException {
-
 		userDb.update(profile);
 	}
 

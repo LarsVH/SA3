@@ -8,7 +8,7 @@ public interface UserDatabaseInterface {
 	/**
 	 * Inserts a new user profile into the user database.
 	 */
-	public abstract void insert(UserProfile profile) throws DatabaseException;
+	//public abstract void insert(UserProfile profile) throws DatabaseException;
 	
 	public abstract void insertFree(UserProfile profile) throws DatabaseException;
 	public abstract void insertCheap(UserProfile profile) throws DatabaseException;

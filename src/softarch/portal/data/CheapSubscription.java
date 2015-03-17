@@ -83,7 +83,7 @@ public class CheapSubscription extends RegularUser {
 	 * the account to a relational database.
 	 */
 	// TODO remove asSql
-	public String asSql() {
+	/*public String asSql() {
 		return	"INSERT INTO CheapSubscription (Username, Password, " +
 			"FirstName, LastName, EmailAddress, LastLogin) " +
 			"VALUES (\'" + normalizeSql(username) + "\', \'" +
@@ -92,7 +92,7 @@ public class CheapSubscription extends RegularUser {
 			normalizeSql(lastName) + "\', \'" +
 			normalizeSql(emailAddress) + "\', \'" +
 			df.format(lastLogin) + "\');";
-	}
+	}*/
 
 	/**
 	 * Returns an SQL UPDATE string that allows the system to update

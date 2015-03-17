@@ -32,11 +32,11 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 	/* (non-Javadoc)
 	 * @see softarch.portal.db.sql.UserDatabaseInterface#insert(softarch.portal.data.UserProfile)
 	 */
-	public void insert(UserProfile profile)
+	/*public void insert(UserProfile profile)
 			throws DatabaseException {
 
 		executeSql(profile.asSql());
-	}
+	} */
 	public void insertFree(UserProfile profile) throws DatabaseException {
 		executeSql("INSERT INTO FreeSubscription (Username, Password, " +
 				"FirstName, LastName, EmailAddress, LastLogin) " +
@@ -88,7 +88,7 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 				normalizeSql(profile.getFirstName()) + "\', LastName = \'" +
 				normalizeSql(profile.getLastName()) + "\', EmailAddress = \'" +
 				normalizeSql(profile.getEmailAddress()) + "\', LastLogin = \'" +
-				df.format(profile.getEmailAddress()) + "\' " + "WHERE Username = \'" +
+				df.format(profile.getLastLogin()) + "\' " + "WHERE Username = \'" +
 				normalizeSql(profile.getUsername()) + "\';");
 
 	}
@@ -99,7 +99,7 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 				normalizeSql(profile.getFirstName()) + "\', LastName = \'" +
 				normalizeSql(profile.getLastName()) + "\', EmailAddress = \'" +
 				normalizeSql(profile.getEmailAddress()) + "\', LastLogin = \'" +
-				df.format(profile.getEmailAddress()) + "\' " + "WHERE Username = \'" +
+				df.format(profile.getLastLogin()) + "\' " + "WHERE Username = \'" +
 				normalizeSql(profile.getUsername()) + "\';");
 
 	}
@@ -110,7 +110,7 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 				normalizeSql(profile.getFirstName()) + "\', LastName = \'" +
 				normalizeSql(profile.getLastName()) + "\', EmailAddress = \'" +
 				normalizeSql(profile.getEmailAddress()) + "\', LastLogin = \'" +
-				df.format(profile.getEmailAddress()) + "\' " + "WHERE Username = \'" +
+				df.format(profile.getLastLogin()) + "\' " + "WHERE Username = \'" +
 				normalizeSql(profile.getUsername()) + "\';");
 
 	}
