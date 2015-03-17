@@ -48,7 +48,7 @@ public class DatabaseFacade {
 		userDb.insertFree(profile);
 	}
 	public void insertCheap(UserProfile profile) throws DatabaseException{
-		userDb.insertcheap(profile);
+		userDb.insertCheap(profile);
 	}
 	public void insertExpensive(UserProfile profile){
 		userDb.insertExpensive(profile);
@@ -57,6 +57,7 @@ public class DatabaseFacade {
 	/**
 	 * Updates an existing user profile in the user database.
 	 */
+	// TODO: remove SQL coupling in app layer (logout)
 	public void update(UserProfile profile)
 		throws DatabaseException {
 

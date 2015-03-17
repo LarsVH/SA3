@@ -11,7 +11,7 @@ public interface UserDatabaseInterface {
 	public abstract void insert(UserProfile profile) throws DatabaseException;
 	
 	public abstract void insertFree(UserProfile profile);
-	public abstract void insertcheap(UserProfile profile) throws DatabaseException;
+	public abstract void insertCheap(UserProfile profile) throws DatabaseException;
 	public abstract void insertExpensive(UserProfile profile);
 
 	/**

@@ -53,7 +53,7 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		}
 	}
 
-	public void insertcheap(UserProfile profile) {
+	public void insertCheap(UserProfile profile) {
 		
 		try {
 			executeSql("INSERT INTO CheapSubscription (Username, Password, " +
