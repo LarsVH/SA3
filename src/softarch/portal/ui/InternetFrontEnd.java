@@ -130,7 +130,8 @@ public class InternetFrontEnd extends HttpServlet {
 				= new ApplicationFacade(
 					properties.getProperty("dbUser"),
 					properties.getProperty("dbPassword"),
-					properties.getProperty("dbUrl"));
+					properties.getProperty("dbUrl"),
+					properties.getProperty("dbType"));
 			pages.put(	"Registration",
 					new RegistrationPage(appFacade));
 			pages.put(	"Login",

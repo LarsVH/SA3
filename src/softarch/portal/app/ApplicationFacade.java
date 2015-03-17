@@ -24,11 +24,12 @@ public class ApplicationFacade {
 	 */
 	public ApplicationFacade(	String dbUser,
 					String dbPassword,
-					String dbUrl) {
+					String dbUrl,
+					String dbType) {
 		
 		//XXX This should be the only link between application and db
 		DatabaseFacade dbFacade
-			= new DatabaseFacade(dbUser, dbPassword, dbUrl);
+			= new DatabaseFacade(dbUser, dbPassword, dbUrl, dbType);
 		
 		userManager		= new UserManager(dbFacade);
 		queryManager		= new QueryManager(dbFacade);

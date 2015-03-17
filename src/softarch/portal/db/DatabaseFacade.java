@@ -23,16 +23,22 @@ public class DatabaseFacade {
 	/**
 	 * Creates a new database facade.
 	 */
-	public DatabaseFacade(String dbUser, String dbPassword, String dbUrl) {
-		userDb		= new UserDatabase(	dbUser,
-							dbPassword,
-							dbUrl);
-		regularDb	= new RegularDatabase(	dbUser,
-							dbPassword,
-							dbUrl);
-		rawDb		= new RawDatabase(	dbUser,
-							dbPassword,
-							dbUrl);
+	public DatabaseFacade(String dbUser, String dbPassword, String dbUrl, String dbType) {
+		if (dbType.equals("sql")) {
+			userDb		= new UserDatabase(	dbUser,
+								dbPassword,
+								dbUrl);
+			regularDb	= new RegularDatabase(	dbUser,
+								dbPassword,
+								dbUrl);
+			rawDb		= new RawDatabase(	dbUser,
+								dbPassword,
+								dbUrl);
+		} else {
+			userDb = new softarch.portal.db.json.UserDatabase(dbUrl);
+			regularDb = new softarch.portal.db.json.RegularDatabase(dbUrl);
+			rawDb = new softarch.portal.db.json.RawDatabase(dbUrl);
+		}
 	}
 
 	/**
