@@ -83,7 +83,7 @@ public class ExpensiveSubscription extends RegularUser {
 	 * Returns an SQL INSERT string that allows the system to add
 	 * the account to a relational database.
 	 */
-	public String asSql() {
+	/*public String asSql() {
 		return	"INSERT INTO ExpensiveSubscription (Username, " +
 			"Password, FirstName, LastName, EmailAddress, " +
 			"LastLogin) VALUES (\'" + normalizeSql(username) +
@@ -92,7 +92,7 @@ public class ExpensiveSubscription extends RegularUser {
 			normalizeSql(lastName) + "\', \'" +
 			normalizeSql(emailAddress) + "\', \'" +
 			df.format(lastLogin) + "\');";
-	}
+	} */
 
 	/**
 	 * Returns an SQL UPDATE string that allows the system to update

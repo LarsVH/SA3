@@ -63,14 +63,14 @@ public class UserManager extends Manager {
 	 * @param profile The profile to be added.
 	 */
 	public void add(UserProfile profile)
-		throws ApplicationException {
+			throws ApplicationException {
 
 		try {
 			String username = profile.getUsername();
 			if (dbFacade.userExists(username))
 				throw new DatabaseException(
-					"The username \"" + username + "\" " +
-					"is already taken!");
+						"The username \"" + username + "\" " +
+						"is already taken!");
 			else {
 				if(profile instanceof FreeSubscription){
 					dbFacade.insertFree(profile);
@@ -93,8 +93,8 @@ public class UserManager extends Manager {
 		}
 		catch (Exception e) {
 			throw new ApplicationException(
-				"The user manager has caught an unexpected " +
-				"exception: " + e.getMessage());
+					"The user manager has caught an unexpected " +
+							"exception: " + e.getMessage());
 		}
 	}
 
@@ -102,7 +102,7 @@ public class UserManager extends Manager {
 	 * Returns the user profile for the user with the specified username.
 	 */
 	public UserProfile findUser(String username)
-		throws ApplicationException {
+			throws ApplicationException {
 
 		try {
 			return dbFacade.findUser(username);
@@ -112,8 +112,8 @@ public class UserManager extends Manager {
 		}
 		catch (Exception e) {
 			throw new ApplicationException(
-				"The user manager has caught an unexpected " +
-				"exception: " + e.getMessage());
+					"The user manager has caught an unexpected " +
+							"exception: " + e.getMessage());
 		}
 	}
 
@@ -123,23 +123,23 @@ public class UserManager extends Manager {
 	 * is provided as a parameter.
 	 */
 	public UserProfile findUser(String username, Number sessionId)
-		throws ApplicationException {
+			throws ApplicationException {
 
 		if (users.containsKey(username)
-			&& ((Number) users.get(username)).equals(sessionId))
-			
+				&& ((Number) users.get(username)).equals(sessionId))
+
 			return findUser(username);
 		else
 			throw new ApplicationException(
-				"Invalid username \"" + username + "\" " +
-				"and/or session ID " + sessionId + "!");
+					"Invalid username \"" + username + "\" " +
+							"and/or session ID " + sessionId + "!");
 	}
 
 	/**
 	 * Logs in the user with the specified username and password.
 	 */
 	public Number login(String username, String password)
-		throws ApplicationException {
+			throws ApplicationException {
 
 		try {
 			if (findUser(username).getPassword().equals(password)) {
@@ -152,15 +152,15 @@ public class UserManager extends Manager {
 			}
 			else
 				throw new ApplicationException(
-					"Invalid password!");
+						"Invalid password!");
 		}
 		catch (ApplicationException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		catch (Exception e) {
 			throw new ApplicationException(
-				"The user manager has caught an unexpected " +
-				"exception: " + e.getMessage());
+					"The user manager has caught an unexpected " +
+							"exception: " + e.getMessage());
 		}
 	}
 
@@ -168,13 +168,13 @@ public class UserManager extends Manager {
 	 * Returns a list of all users that are currently logged in.
 	 */
 	public List getActiveUsers()
-		throws ApplicationException {
+			throws ApplicationException {
 
 		try {
 			List result = new Vector();
 			for (Iterator i = users.keySet().iterator();
-				i.hasNext(); ) {
-				
+					i.hasNext(); ) {
+
 				String username = (String) i.next();	
 				result.add(findUser(username));
 			}
@@ -185,8 +185,8 @@ public class UserManager extends Manager {
 		}
 		catch (Exception e) {
 			throw new ApplicationException(
-				"The user manager has caught an unexpected " +
-				"exception: " + e.getMessage());
+					"The user manager has caught an unexpected " +
+							"exception: " + e.getMessage());
 		}
 	}
 
@@ -194,22 +194,35 @@ public class UserManager extends Manager {
 	 * Logs out the user with the specified username and session ID.
 	 */
 	public void logout(String username, Number sessionId)
-		throws ApplicationException {
-
+			throws ApplicationException {
 		try {
 			if (users.containsKey(username)) {
 				UserProfile profile
-					= findUser(username, sessionId);
-				dbFacade.update(
-					profile.setLastLogin(new Date()));
-				users.remove(username);
-			}
+				= findUser(username, sessionId);
+
+					if(profile instanceof FreeSubscription){
+						dbFacade.updateFree(profile.setLastLogin(new Date()));
+					}
+					else if(profile instanceof CheapSubscription){
+						dbFacade.updateCheap(profile.setLastLogin(new Date()));
+					}
+					else if(profile instanceof ExpensiveSubscription){
+						dbFacade.updateExpensive(profile.setLastLogin(new Date()));
+					}
+					else {
+						System.out.println("Error -- Usermgr -- logout -- profile type unknown");
+					}
+					/*dbFacade.update(
+					profile.setLastLogin(new Date()));*/
+					users.remove(username);
+				}
 			else
 				throw new ApplicationException(
-					"The user \"" + username + "\" is " +
-					"not logged in!");
+						"The user \"" + username + "\" is " +
+						"not logged in!");
 		}
 		catch (DatabaseException e) {
+			System.out.println(e);
 			throw new ApplicationException(e.getMessage());
 		}
 	}

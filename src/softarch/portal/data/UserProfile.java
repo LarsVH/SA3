@@ -31,7 +31,7 @@ public abstract class UserProfile extends Data {
 	 * Returns an SQL string that allows the system to add the account
 	 * to a relational database.
 	 */
-	public abstract String asSql();
+	//public abstract String asSql();
 
 	/**
 	 * When a user has logged in successfully, he will be

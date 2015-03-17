@@ -18,15 +18,11 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		super(dbUrl);
 	}
 	
-	public void insert(UserProfile profile) throws DatabaseException {
-		// TODO methode wordt verwijderd
-	}
-
 	public void insertFree(UserProfile profile) {
 		insert(profile, TABLE_FREE_SUB);
 	}
 
-	public void insertcheap(UserProfile profile) throws DatabaseException {
+	public void insertCheap(UserProfile profile) throws DatabaseException {
 		insert(profile, TABLE_CHEAP_SUB);
 	}
 
@@ -48,6 +44,21 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void updateFree(UserProfile profile) throws DatabaseException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateCheap(UserProfile profile) throws DatabaseException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateExpensive(UserProfile profile) throws DatabaseException {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public UserProfile findUser(String username) throws DatabaseException {
 		// TODO Auto-generated method stub
@@ -58,5 +69,4 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }
