@@ -6,6 +6,7 @@ import java.util.List;
 import softarch.portal.data.RegularData;
 import softarch.portal.db.RegularDatabaseInterface;
 import softarch.portal.db.sql.DatabaseException;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class RegularDatabase extends Database implements RegularDatabaseInterface {
 
@@ -15,25 +16,21 @@ public class RegularDatabase extends Database implements RegularDatabaseInterfac
 	
 	public List findRecords(String informationType, String queryString)
 			throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedException();
 	}
 
 	public List findRecordsFrom(String informationType, Date date)
 			throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedException();
 	}
 
 	public void add(RegularData rd) throws DatabaseException {
-		// TODO Auto-generated method stub
-		
+		throw new NotImplementedException();
 	}
 
 	public int getNumberOfRegularRecords(String informationType)
 			throws DatabaseException {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new NotImplementedException();
 	}
 
 }

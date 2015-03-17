@@ -6,6 +6,7 @@ import softarch.portal.data.RawData;
 import softarch.portal.data.RegularData;
 import softarch.portal.db.RawDatabaseInterface;
 import softarch.portal.db.sql.DatabaseException;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class RawDatabase extends Database implements RawDatabaseInterface {
 	
@@ -14,33 +15,27 @@ public class RawDatabase extends Database implements RawDatabaseInterface {
 	}
 
 	public List getRawData() throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedException();
 	}
 
 	public RawData getRawData(int id) throws DatabaseException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedException();
 	}
 
 	public void addRawData(RegularData regularData) throws DatabaseException {
-		// TODO Auto-generated method stub
-		
+		throw new NotImplementedException();
 	}
 
 	public void deleteRawData(RawData rd) throws DatabaseException {
-		// TODO Auto-generated method stub
-		
+		throw new NotImplementedException();
 	}
 
 	public void updateRawData(RawData rd) throws DatabaseException {
-		// TODO Auto-generated method stub
-		
+		throw new NotImplementedException();
 	}
 
 	public int getNumberOfRawRecords() throws DatabaseException {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new NotImplementedException();
 	}
 
 }
