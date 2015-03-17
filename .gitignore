@@ -10,3 +10,5 @@ web_portal.log
 UserDatabase.FreeSubscription.json
 .properties
 .script
+UserDatabase.CheapSubscription.json
+UserDatabase.ExpensiveSubscription.json
