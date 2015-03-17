@@ -25,32 +25,32 @@ public class DatabaseFacade {
 	 */
 	public DatabaseFacade(String dbUser, String dbPassword, String dbUrl) {
 		userDb		= new UserDatabase(	dbUser,
-							dbPassword,
-							dbUrl);
+				dbPassword,
+				dbUrl);
 		regularDb	= new RegularDatabase(	dbUser,
-							dbPassword,
-							dbUrl);
+				dbPassword,
+				dbUrl);
 		rawDb		= new RawDatabase(	dbUser,
-							dbPassword,
-							dbUrl);
+				dbPassword,
+				dbUrl);
 	}
 
 	/**
 	 * Inserts a new user profile into the user database.
 	 */
 	public void insert(UserProfile profile)
-		throws DatabaseException {
-	
+			throws DatabaseException {
+
 		userDb.insert(profile);
 	}
-	
-	public void insertFree(UserProfile profile){
+
+	public void insertFree(UserProfile profile) throws DatabaseException{
 		userDb.insertFree(profile);
 	}
 	public void insertCheap(UserProfile profile) throws DatabaseException{
 		userDb.insertCheap(profile);
 	}
-	public void insertExpensive(UserProfile profile){
+	public void insertExpensive(UserProfile profile) throws DatabaseException{
 		userDb.insertExpensive(profile);
 	}
 
@@ -59,16 +59,26 @@ public class DatabaseFacade {
 	 */
 	// TODO: remove SQL coupling in app layer (logout)
 	public void update(UserProfile profile)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		userDb.update(profile);
+	}
+
+	public void updateFree(UserProfile profile) throws DatabaseException{
+		userDb.updateFree(profile);
+	}
+	public void updateCheap(UserProfile profile) throws DatabaseException{
+		userDb.updateCheap(profile);
+	}
+	public void updateExpensive(UserProfile profile) throws DatabaseException{
+		userDb.updateExpensive(profile);
 	}
 
 	/**
 	 * Returns the user with the specified username.
 	 */
 	public UserProfile findUser(String username)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return userDb.findUser(username);
 	}
@@ -77,7 +87,7 @@ public class DatabaseFacade {
 	 * Checks whether a user with the specified username exists.
 	 */
 	public boolean userExists(String username)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return userDb.userExists(username);
 	}
@@ -87,7 +97,7 @@ public class DatabaseFacade {
 	 * that match the given query string.
 	 */
 	public List findRecords(String informationType, String queryString)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return regularDb.findRecords(informationType, queryString);
 	}
@@ -97,7 +107,7 @@ public class DatabaseFacade {
 	 * that were added after the given date.
 	 */
 	public List findRecordsFrom(String informationType, Date date)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return regularDb.findRecordsFrom(informationType, date);
 	}
@@ -106,8 +116,8 @@ public class DatabaseFacade {
 	 * Adds a new regular data object to the regular database.
 	 */
 	public void add(RegularData rd)
-		throws DatabaseException {
-	
+			throws DatabaseException {
+
 		regularDb.add(rd);
 	}
 
@@ -116,7 +126,7 @@ public class DatabaseFacade {
 	 * regular database.
 	 */
 	public int getNumberOfRegularRecords(String informationType)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return regularDb.getNumberOfRegularRecords(informationType);
 	}
@@ -125,7 +135,7 @@ public class DatabaseFacade {
 	 * Returns a list of all raw data.
 	 */
 	public List getRawData()
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return rawDb.getRawData();
 	}
@@ -134,13 +144,13 @@ public class DatabaseFacade {
 	 * Returns a specific raw data object.
 	 */
 	public RawData getRawData(int id)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return rawDb.getRawData(id);
 	}
 
 	public void addRawData(RegularData rd)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		rawDb.addRawData(rd);
 	}
@@ -149,7 +159,7 @@ public class DatabaseFacade {
 	 * Deletes a raw data object.
 	 */
 	public void deleteRawData(RawData rd)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		rawDb.deleteRawData(rd);
 	}
@@ -158,7 +168,7 @@ public class DatabaseFacade {
 	 * Updates a raw data object.
 	 */
 	public void updateRawData(RawData rd)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		rawDb.updateRawData(rd);
 	}
@@ -167,7 +177,7 @@ public class DatabaseFacade {
 	 * Returns the number of records in the raw database.
 	 */
 	public int getNumberOfRawRecords()
-		throws DatabaseException {
+			throws DatabaseException {
 
 		return rawDb.getNumberOfRawRecords();
 	}

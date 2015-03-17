@@ -33,13 +33,12 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 	 * @see softarch.portal.db.sql.UserDatabaseInterface#insert(softarch.portal.data.UserProfile)
 	 */
 	public void insert(UserProfile profile)
-		throws DatabaseException {
-		
+			throws DatabaseException {
+
 		executeSql(profile.asSql());
 	}
-	public void insertFree(UserProfile profile) {
-		try {
-			executeSql("INSERT INTO FreeSubscription (Username, Password, " +
+	public void insertFree(UserProfile profile) throws DatabaseException {
+		executeSql("INSERT INTO FreeSubscription (Username, Password, " +
 				"FirstName, LastName, EmailAddress, LastLogin) " +
 				"VALUES (\'" + normalizeSql(profile.getUsername()) + "\', \'" +
 				normalizeSql(profile.getPassword()) + "\', \'" +
@@ -47,16 +46,11 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 				normalizeSql(profile.getLastName()) + "\', \'" +
 				normalizeSql(profile.getEmailAddress()) + "\', \'" +
 				df.format(profile.getLastLogin()) + "\');");
-		} catch (DatabaseException e) {
-			//Auto-generated catch block
-			e.printStackTrace();
-		}
+
 	}
 
-	public void insertCheap(UserProfile profile) {
-		
-		try {
-			executeSql("INSERT INTO CheapSubscription (Username, Password, " +
+	public void insertCheap(UserProfile profile) throws DatabaseException {		
+		executeSql("INSERT INTO CheapSubscription (Username, Password, " +
 				"FirstName, LastName, EmailAddress, LastLogin) " +
 				"VALUES (\'" + normalizeSql(profile.getUsername()) + "\', \'" +
 				normalizeSql(profile.getPassword()) + "\', \'" +
@@ -64,17 +58,11 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 				normalizeSql(profile.getLastName()) + "\', \'" +
 				normalizeSql(profile.getEmailAddress()) + "\', \'" +
 				df.format(profile.getLastLogin()) + "\');");
-		} catch (DatabaseException e) {
-			//Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
-	
 
-	public void insertExpensive(UserProfile profile) {
-		try {
-			executeSql("INSERT INTO ExpensiveSubscription (Username, " +
+
+	public void insertExpensive(UserProfile profile) throws DatabaseException {
+		executeSql("INSERT INTO ExpensiveSubscription (Username, " +
 				"Password, FirstName, LastName, EmailAddress, " +
 				"LastLogin) VALUES (\'" + normalizeSql(profile.getUsername()) +
 				"\', \'" + normalizeSql(profile.getPassword()) +"\', \'" +
@@ -82,76 +70,105 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 				normalizeSql(profile.getLastName()) + "\', \'" +
 				normalizeSql(profile.getEmailAddress()) + "\', \'" +
 				df.format(profile.getLastLogin()) + "\');");
-		} catch (DatabaseException e) {
-			//Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see softarch.portal.db.sql.UserDatabaseInterface#update(softarch.portal.data.UserProfile)
 	 */
 	public void update(UserProfile profile)
-		throws DatabaseException {
-		
+			throws DatabaseException {
+
 		executeSql(profile.asSqlUpdate());
+	}
+
+
+	public void updateFree(UserProfile profile) throws DatabaseException {
+		executeSql("UPDATE FreeSubscription SET Password = \'" +
+				normalizeSql(profile.getPassword()) + "\', FirstName = \'" +
+				normalizeSql(profile.getFirstName()) + "\', LastName = \'" +
+				normalizeSql(profile.getLastName()) + "\', EmailAddress = \'" +
+				normalizeSql(profile.getEmailAddress()) + "\', LastLogin = \'" +
+				df.format(profile.getEmailAddress()) + "\' " + "WHERE Username = \'" +
+				normalizeSql(profile.getUsername()) + "\';");
+
+	}
+
+	public void updateCheap(UserProfile profile) throws DatabaseException {
+		executeSql("UPDATE CheapSubscription SET Password = \'" +
+				normalizeSql(profile.getPassword()) + "\', FirstName = \'" +
+				normalizeSql(profile.getFirstName()) + "\', LastName = \'" +
+				normalizeSql(profile.getLastName()) + "\', EmailAddress = \'" +
+				normalizeSql(profile.getEmailAddress()) + "\', LastLogin = \'" +
+				df.format(profile.getEmailAddress()) + "\' " + "WHERE Username = \'" +
+				normalizeSql(profile.getUsername()) + "\';");
+
+	}
+
+	public void updateExpensive(UserProfile profile) throws DatabaseException {
+		executeSql("UPDATE ExpensiveSubscription SET Password = \'" +
+				normalizeSql(profile.getPassword()) + "\', FirstName = \'" +
+				normalizeSql(profile.getFirstName()) + "\', LastName = \'" +
+				normalizeSql(profile.getLastName()) + "\', EmailAddress = \'" +
+				normalizeSql(profile.getEmailAddress()) + "\', LastLogin = \'" +
+				df.format(profile.getEmailAddress()) + "\' " + "WHERE Username = \'" +
+				normalizeSql(profile.getUsername()) + "\';");
+
 	}
 
 	/* (non-Javadoc)
 	 * @see softarch.portal.db.sql.UserDatabaseInterface#findUser(java.lang.String)
 	 */
-	
+
 	//-------------------------------------------------------------------------------------------------------------------------
 	public UserProfile findUser(String username)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		// Connect to the database:
 		try {
 			Statement statement
-				= getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			= getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			ResultSet rs;
-			
+
 			rs = statement.executeQuery(
-				"SELECT * FROM FreeSubscription WHERE " +
-				"Username = \'" + username + "\';");
-			
+					"SELECT * FROM FreeSubscription WHERE " +
+							"Username = \'" + username + "\';");
+
 			if (rs.first())
 				return new FreeSubscription(rs);
 
 			rs = statement.executeQuery(
-				"SELECT * FROM CheapSubscription WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM CheapSubscription WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return new CheapSubscription(rs);
 
 			rs = statement.executeQuery(
-				"SELECT * FROM ExpensiveSubscription WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM ExpensiveSubscription WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return new ExpensiveSubscription(rs);
 
 			rs = statement.executeQuery(
-				"SELECT * FROM Operator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM Operator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return new Operator(rs);
 
 			rs = statement.executeQuery(
-				"SELECT * FROM ExternalAdministrator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM ExternalAdministrator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return new ExternalAdministrator(rs);
 
 			rs = statement.executeQuery(
-				"SELECT * FROM RegularAdministrator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM RegularAdministrator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return new RegularAdministrator(rs);
 
 			rs = statement.executeQuery(
-				"SELECT * FROM ExpertAdministrator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM ExpertAdministrator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return new ExpertAdministrator(rs);
 
@@ -161,11 +178,11 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		// Exception handling:
 		catch (SQLException e) {
 			throw new DatabaseException(
-				"SQL Exception: " + e.getMessage());
+					"SQL Exception: " + e.getMessage());
 		}
 		catch (ParseException e) {
 			throw new DatabaseException(
-				"Parse Exception: " + e.getMessage());
+					"Parse Exception: " + e.getMessage());
 		}
 	}
 
@@ -173,53 +190,53 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 	 * @see softarch.portal.db.sql.UserDatabaseInterface#userExists(java.lang.String)
 	 */
 	public boolean userExists(String username)
-		throws DatabaseException {
+			throws DatabaseException {
 
 		// Connect to the database:
 		try {
 
 			Statement statement = getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			ResultSet rs;
-			
+
 			rs = statement.executeQuery(
-				"SELECT * FROM FreeSubscription WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM FreeSubscription WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
 			rs = statement.executeQuery(
-				"SELECT * FROM CheapSubscription WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM CheapSubscription WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
 			rs = statement.executeQuery(
-				"SELECT * FROM ExpensiveSubscription WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM ExpensiveSubscription WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
 			rs = statement.executeQuery(
-				"SELECT * FROM Operator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM Operator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
 			rs = statement.executeQuery(
-				"SELECT * FROM ExternalAdministrator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM ExternalAdministrator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
 			rs = statement.executeQuery(
-				"SELECT * FROM RegularAdministrator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM RegularAdministrator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
 			rs = statement.executeQuery(
-				"SELECT * FROM ExpertAdministrator WHERE " +
-				"Username = \'" + username + "\';");
+					"SELECT * FROM ExpertAdministrator WHERE " +
+							"Username = \'" + username + "\';");
 			if (rs.first())
 				return true;
 
@@ -229,9 +246,11 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		// Exception handling:
 		catch (SQLException e) {
 			throw new DatabaseException(
-				"SQL Exception: " + e.getMessage());
+					"SQL Exception: " + e.getMessage());
 		}
 	}
+
+
 
 
 }
