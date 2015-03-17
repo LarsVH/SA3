@@ -2,6 +2,9 @@ package softarch.portal.data;
 
 import java.util.Date;
 
+import softarch.portal.db.DatabaseFacade;
+import softarch.portal.db.sql.DatabaseException;
+
 /**
  * This is an abstract superclass for all user profiles.
  * @author Niels Joncheere
@@ -43,7 +46,15 @@ public abstract class UserProfile extends Data {
 	 * Returns an SQL UPDATE string that allows the system to update
 	 * the account in a relational database.
 	 */
-	public abstract String asSqlUpdate();
+	//public abstract String asSqlUpdate();
+	
+	/**
+	 * 
+	 * insert userprofile into DB using DatabaseFacade
+	 * @throws DatabaseException 
+	 */
+	
+	public abstract void insertToDatabase(DatabaseFacade dbFacade, UserProfile profile) throws DatabaseException;
 
 	public String getUsername() {
 		return username;
@@ -61,4 +72,5 @@ public abstract class UserProfile extends Data {
 		this.lastLogin = lastLogin;
 		return this;
 	}
+
 }

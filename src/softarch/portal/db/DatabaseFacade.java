@@ -62,15 +62,6 @@ public class DatabaseFacade {
 		userDb.insertExpensive(profile);
 	}
 
-	/**
-	 * Updates an existing user profile in the user database.
-	 */
-	// TODO: remove SQL coupling in app layer (logout)
-	public void update(UserProfile profile)
-			throws DatabaseException {
-		userDb.update(profile);
-	}
-
 	public void updateFree(UserProfile profile) throws DatabaseException{
 		userDb.updateFree(profile);
 	}
