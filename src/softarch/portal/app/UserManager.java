@@ -72,18 +72,7 @@ public class UserManager extends Manager {
 						"The username \"" + username + "\" " +
 						"is already taken!");
 			else {
-				if(profile instanceof FreeSubscription){
-					dbFacade.insertFree(profile);
-				}
-				else if(profile instanceof CheapSubscription){
-					dbFacade.insertCheap(profile);
-				}
-				else if(profile instanceof ExpensiveSubscription){
-					dbFacade.insertExpensive(profile);
-				}
-				else {
-					System.out.println("ERROR -- UserManager -- Subscription Instance not determinable");
-				}
+				profile.insertToDatabase(dbFacade);
 				// TODO: Remove
 				//dbFacade.insert(profile);
 			}
@@ -199,19 +188,8 @@ public class UserManager extends Manager {
 			if (users.containsKey(username)) {
 				UserProfile profile
 				= findUser(username, sessionId);
-
-					if(profile instanceof FreeSubscription){
-						dbFacade.updateFree(profile.setLastLogin(new Date()));
-					}
-					else if(profile instanceof CheapSubscription){
-						dbFacade.updateCheap(profile.setLastLogin(new Date()));
-					}
-					else if(profile instanceof ExpensiveSubscription){
-						dbFacade.updateExpensive(profile.setLastLogin(new Date()));
-					}
-					else {
-						System.out.println("Error -- Usermgr -- logout -- profile type unknown");
-					}
+				
+				profile.updateToDatabase(dbFacade);
 					/*dbFacade.update(
 					profile.setLastLogin(new Date()));*/
 					users.remove(username);

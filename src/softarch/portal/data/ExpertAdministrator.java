@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Date;
 
+import softarch.portal.db.DatabaseFacade;
+import softarch.portal.db.sql.DatabaseException;
+
 /**
  * Represents an <i>expert administrator</i> user account.
  * @author Niels Joncheere
@@ -91,5 +94,19 @@ public class ExpertAdministrator extends Administrator {
 			normalizeSql(emailAddress) + "\', LastLogin = \'" +
 			df.format(lastLogin) + "\' " + "WHERE Username = \'" +
 			normalizeSql(username) + "\';";
+	}
+
+	@Override
+	public void insertToDatabase(DatabaseFacade dbFacade)
+			throws DatabaseException {
+		// not implemented for this assignment
+		
+	}
+
+	@Override
+	public void updateToDatabase(DatabaseFacade dbFacade)
+			throws DatabaseException {
+		// not implemented for this assignment
+		
 	}
 }

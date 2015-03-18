@@ -54,7 +54,9 @@ public abstract class UserProfile extends Data {
 	 * @throws DatabaseException 
 	 */
 	
-	public abstract void insertToDatabase(DatabaseFacade dbFacade, UserProfile profile) throws DatabaseException;
+	public abstract void insertToDatabase(DatabaseFacade dbFacade) throws DatabaseException;
+	
+	public abstract void updateToDatabase(DatabaseFacade dbFacade) throws DatabaseException;
 
 	public String getUsername() {
 		return username;
