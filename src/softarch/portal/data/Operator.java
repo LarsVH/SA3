@@ -106,14 +106,14 @@ public class Operator extends UserProfile {
 	@Override
 	public void insertToDatabase(DatabaseFacade dbFacade)
 			throws DatabaseException {
-		// TODO Auto-generated method stub
+		// not implemented for this assignment
 		
 	}
 
 	@Override
 	public void updateToDatabase(DatabaseFacade dbFacade)
 			throws DatabaseException {
-		// TODO Auto-generated method stub
+		// not implemented for this assignment
 		
 	}
 }

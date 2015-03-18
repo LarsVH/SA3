@@ -27,7 +27,6 @@ public class ApplicationFacade {
 					String dbUrl,
 					String dbType) {
 		
-		//XXX This should be the only link between application and db
 		DatabaseFacade dbFacade
 			= new DatabaseFacade(dbUser, dbPassword, dbUrl, dbType);
 		

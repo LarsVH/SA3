@@ -43,9 +43,9 @@ public class UserDatabase extends Database implements UserDatabaseInterface {
 		insert(DATABASE_USER, tableName, gson.toJsonTree(profileJson));
 	}
 
-	// TODO verwijderen ?
+	
 	public void update(UserProfile profile) throws DatabaseException {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	

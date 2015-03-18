@@ -82,38 +82,10 @@ public class ExpensiveSubscription extends RegularUser {
 			"</ExpensiveSubscription>";
 	}
 
-	// TODO: remove asSql
-	/**
-	 * Returns an SQL INSERT string that allows the system to add
-	 * the account to a relational database.
-	 */
-	/*public String asSql() {
-		return	"INSERT INTO ExpensiveSubscription (Username, " +
-			"Password, FirstName, LastName, EmailAddress, " +
-			"LastLogin) VALUES (\'" + normalizeSql(username) +
-			"\', \'" + normalizeSql(password) +"\', \'" +
-			normalizeSql(firstName) + "\', \'" +
-			normalizeSql(lastName) + "\', \'" +
-			normalizeSql(emailAddress) + "\', \'" +
-			df.format(lastLogin) + "\');";
-	} */
 	@Override
 	public void insertToDatabase(DatabaseFacade dbFacade) throws DatabaseException {
 		dbFacade.insertExpensive(this);
 	}
-	/**
-	 * Returns an SQL UPDATE string that allows the system to update
-	 * the account in a relational database.
-	 */
-	/*public String asSqlUpdate() {
-		return	"UPDATE ExpensiveSubscription SET Password = \'" +
-			normalizeSql(password) + "\', FirstName = \'" +
-	                normalizeSql(firstName) + "\', LastName = \'" +
-			normalizeSql(lastName) + "\', EmailAddress = \'" +
-	                normalizeSql(emailAddress) + "\', LastLogin = \'" +
-			df.format(lastLogin) + "\' " + "WHERE Username = \'" +
-			normalizeSql(username) + "\';";
-	}*/
 
 	@Override
 	public void updateToDatabase(DatabaseFacade dbFacade)
