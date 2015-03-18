@@ -1,6 +1,10 @@
 package softarch.portal.data;
 
 import javax.servlet.http.HttpServletRequest;
+
+import softarch.portal.db.DatabaseFacade;
+import softarch.portal.db.sql.DatabaseException;
+
 import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -93,12 +97,17 @@ public class CheapSubscription extends RegularUser {
 			normalizeSql(emailAddress) + "\', \'" +
 			df.format(lastLogin) + "\');";
 	}*/
+	
+	@Override
+	public void insertToDatabase(DatabaseFacade dbFacade) throws DatabaseException {
+		dbFacade.insertCheap(this);
+	}
 
 	/**
 	 * Returns an SQL UPDATE string that allows the system to update
 	 * the account in a relational database.
 	 */
-	public String asSqlUpdate() {
+	/*public String asSqlUpdate() {
 		return  "UPDATE CheapSubscription SET Password = \'" +
 			normalizeSql(password) + "\', FirstName = \'" +
 	                normalizeSql(firstName) + "\', LastName = \'" +
@@ -106,5 +115,12 @@ public class CheapSubscription extends RegularUser {
 	                normalizeSql(emailAddress) + "\', LastLogin = \'" +
 			df.format(lastLogin) + "\' " + "WHERE Username = \'" +
 			normalizeSql(username) + "\';";
+	}*/
+
+	@Override
+	public void updateToDatabase(DatabaseFacade dbFacade)
+			throws DatabaseException {
+		dbFacade.updateCheap(this);
+		
 	}
 }

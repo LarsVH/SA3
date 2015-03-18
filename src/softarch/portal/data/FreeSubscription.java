@@ -99,16 +99,15 @@ public class FreeSubscription extends RegularUser {
 	} */
 
 	@Override
-	public void insertToDatabase(DatabaseFacade dbFacade,UserProfile profile) throws DatabaseException {
-		dbFacade.insertFree(profile);
-		
+	public void insertToDatabase(DatabaseFacade dbFacade) throws DatabaseException {
+		dbFacade.insertFree(this);		
 	}
 	
 	/**
 	 * Returns an SQL UPDATE string that allows the system to update
 	 * the account in a relational database.
 	 */
-	public String asSqlUpdate() {
+	/*public String asSqlUpdate() {
 		return	"UPDATE FreeSubscription SET Password = \'" +
 			normalizeSql(password) + "\', FirstName = \'" +
 			normalizeSql(firstName) + "\', LastName = \'" +
@@ -116,6 +115,12 @@ public class FreeSubscription extends RegularUser {
 			normalizeSql(emailAddress) + "\', LastLogin = \'" +
 			df.format(lastLogin) + "\' " + "WHERE Username = \'" +
 			normalizeSql(username) + "\';";
+	}*/
+
+	@Override
+	public void updateToDatabase(DatabaseFacade dbFacade)
+			throws DatabaseException {
+		dbFacade.updateFree(this);
 	}
 
 
