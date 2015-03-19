@@ -73,8 +73,6 @@ public class UserManager extends Manager {
 						"is already taken!");
 			else {
 				profile.insertToDatabase(dbFacade);
-				// TODO: Remove
-				//dbFacade.insert(profile);
 			}
 		}
 		catch (DatabaseException e) {
