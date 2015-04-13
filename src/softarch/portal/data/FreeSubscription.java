@@ -81,41 +81,17 @@ public class FreeSubscription extends RegularUser {
 			"<lastLogin>" + df.format(lastLogin) + "</lastLogin>" +
 			"</FreeSubscription>";
 	}
-	// TODO: Remove asSql
-	/**
-	 * Returns an SQL INSERT string that allows the system to add
-	 * the account to a relational database.
-	 * @throws DatabaseException 
-	 */
-	/*public String asSql() {
-		return	"INSERT INTO FreeSubscription (Username, Password, " +
-			"FirstName, LastName, EmailAddress, LastLogin) " +
-			"VALUES (\'" + normalizeSql(username) + "\', \'" +
-			normalizeSql(password) + "\', \'" +
-			normalizeSql(firstName) + "\', \'" +
-			normalizeSql(lastName) + "\', \'" +
-			normalizeSql(emailAddress) + "\', \'" +
-			df.format(lastLogin) + "\');";
-	} */
 
 	@Override
-	public void insertToDatabase(DatabaseFacade dbFacade,UserProfile profile) throws DatabaseException {
-		dbFacade.insertFree(profile);
-		
+	public void insertToDatabase(DatabaseFacade dbFacade) throws DatabaseException {
+		dbFacade.insertFree(this);		
 	}
-	
-	/**
-	 * Returns an SQL UPDATE string that allows the system to update
-	 * the account in a relational database.
-	 */
-	public String asSqlUpdate() {
-		return	"UPDATE FreeSubscription SET Password = \'" +
-			normalizeSql(password) + "\', FirstName = \'" +
-			normalizeSql(firstName) + "\', LastName = \'" +
-			normalizeSql(lastName) + "\', EmailAddress = \'" +
-			normalizeSql(emailAddress) + "\', LastLogin = \'" +
-			df.format(lastLogin) + "\' " + "WHERE Username = \'" +
-			normalizeSql(username) + "\';";
+
+
+	@Override
+	public void updateToDatabase(DatabaseFacade dbFacade)
+			throws DatabaseException {
+		dbFacade.updateFree(this);
 	}
 
 

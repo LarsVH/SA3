@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
  * @author Niels Joncheere
  */
 public abstract class Data {
-	// TODO: Remove df
 	/**
 	 * The portal's date format.
 	 */
@@ -54,7 +53,6 @@ public abstract class Data {
 		return result;
 	}
 
-	// TODO: remove normalizeSql from data layer
 	/**
 	 * Removes illegal SQL characters from the given input string.
 	 */
